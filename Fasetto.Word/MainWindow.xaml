@@ -29,6 +29,26 @@
                                         <DropShadowEffect ShadowDepth="0" Opacity="0.2" />
                                     </Border.Effect>
                                 </Border>
+
+                                <!-- Opacity mask for corners on grid -->
+
+                                <Border x:Name="Container"
+                                        Background="{StaticResource BackgroundLightBrush}"
+                                        CornerRadius="{Binding WindowCornerRadius, FallbackValue=10}" />
+
+                                <!-- Window border and drop shadow -->
+
+                                <Border CornerRadius="{Binding WindowCornerRadius, FallbackValue=10}"
+
+                                    Background="{StaticResource ForegroundLightBrush}">
+
+                                    <Border.Effect>
+
+                                        <DropShadowEffect ShadowDepth="0.5" Opacity="0.2" />
+
+                                    </Border.Effect>
+
+                                </Border>
                                 <!-- main content -->
                                 <Grid>
                                     <Grid.RowDefinitions>
@@ -50,12 +70,14 @@
                                             <!-- buttons -->
                                             <ColumnDefinition Width="Auto" />
                                         </Grid.ColumnDefinitions>
+
+                                        <!-- button -->
+                                        <Button Padding="8" Style="{StaticResource Hoverless}" WindowChrome.IsHitTestVisibleInChrome="True" Command="{Binding MenuCommand}">
+                                            <Image Source="/Images/Logo/logo-small.png"/>
+                                        </Button>
                                     </Grid>
                                     
-                                    <!-- button -->
-                                    <Button Style="{StaticResource Hoverless}" WindowChrome.IsHitTestVisibleInChrome="True" Command="{Binding MenuCommand}">
-                                        <Image Source="/Images/Logo/logo-small.png"/>
-                                    </Button>
+
                                 </Grid>
                             </Grid>
                         </Border>
